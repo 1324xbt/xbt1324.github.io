@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的游戏大厅</title>
+    <style>
+        /* 网页整体背景与居中 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 改成 min-height，防止卡片太高被裁切 */
+            margin: 0;
+            background-color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* 👇 新增：用来装两个卡片的容器 */
+        .game-container {
+            display: flex;
+            flex-wrap: wrap; /* 如果屏幕太小，会自动换行 */
+            gap: 30px;       /* 两个卡片之间的间距 */
+            justify-content: center;
+            align-items: stretch; /* 让两个卡片高度对齐 */
+        }
+
+        /* 卡片的外框（通用） */
+        .card-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            width: 280px; 
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* 让内部元素垂直排列 */
+        }
+
+        /* 图片样式 */
+        .card-img {
+            width: 88%;          
+            height: auto;        /* 👈 改这里：高度自动，按原图比例显示 */
+            /* 删掉 object-fit: cover; */
+            margin: 15px auto 0; 
+            display: block;
+            border-radius: 8px;  
+        }
+
+        .card-content {
+            padding: 15px 20px 20px 20px;
+            flex-grow: 1; /* 让文字区撑满剩余高度，让按钮能到底部 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 20px; 
+        }
+
+        p {
+            color: #666;
+            font-size: 13px; 
+            line-height: 1.6;
+            margin-bottom: 15px; 
+            text-align: left;    
+            text-indent: 2em;    
+            flex-grow: 1; /* 把按钮推到卡片最下面 */
+        }
+
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 20px; 
+            font-size: 15px;   
+            border-radius: 6px;
+            font-weight: bold;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            align-self: center; /* 按钮居中 */
+        }
+
+        /* 新游戏按钮用不同的颜色（比如蓝色），以示区分 */
+        .btn-blue {
+            background-color: #2196F3;
+        }
+        .btn-blue:hover {
+            background-color: #1976D2;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 游戏容器 -->
+    <div class="game-container">
+
+        <!-- 👇 游戏 1：3D 跑酷 -->
+        <div class="card-box">
+            <img class="card-img" src="3d.png" alt="3D跑酷封面">
+            <div class="card-content">
+                <h1>3D 跑酷</h1>
+                <p>
+                    这是一款3D跑酷游戏。躲开红色陷阱，收集所有钻石，到达终点！
+                </p>
+                <a href="https://13243546.rf.gd/3d/" class="btn">开始游戏 🎮</a>
+            </div>
+        </div>
+
+        <!-- 👇 游戏 2：球球塔防（新加的） -->
+        <div class="card-box">
+            <!-- 记得在根目录传一张叫 ball.png 的图片 -->
+            <img class="card-img" src="ball.png" alt="球球塔防封面">
+            <div class="card-content">
+                <h1>球球塔防</h1>
+                <p>
+                    布置你的防御塔，抵御一波又一波的球球大军，保卫你的基地！
+                </p>
+                <!-- 链接指向 ball 文件夹 -->
+                <a href="https://13243546.rf.gd/ball/" class="btn btn-blue">开始游戏 🛡️</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
